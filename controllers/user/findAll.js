@@ -1,6 +1,18 @@
-const {provider} = require('../../datBase')
+const dataBase = require('../../dataBase').getInstance();
 
 module.exports = async (req,res) => {
-    const [users] = await provider.promise().query('SELECT * FROM users');
-    res.json(users)
+    try {
+        const usersModel = dataBase.getModel('User');
+
+        const users = await usersModel.findAll();
+
+        if (!users.length) {
+            throw new Error('There is no user');
+        }
+
+        res.json (users)
+    }
+    catch (e) {
+        res.status(400).json(e.message);
+    }
 };

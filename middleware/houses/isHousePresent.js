@@ -1,15 +1,16 @@
-const {provider} = require ('../../datBase');
+const {dataBase} = require ('../../dataBase').getInstance();
 module.exports = async (req, res, next) => {
     try {
         const {house_id} = req.params;
-        const query = `SELECT * FROM houses  WHERE id = ${house_id}`;
-        const [isHousePresent] = await provider.promise().query(query);
+        const housesModel = dataBase.getModel('House');
 
-        if (!isHousePresent.length) {
+        const houses = await housesModel.findByPk(house_id);
+
+        if (!houses.length) {
             throw new Error(`House with ID ${house_id} doesn't exist`)
         }
 
-        req.house = isHousePresent;
+        req.house = houses;
 
         next();
     } catch (e) {
