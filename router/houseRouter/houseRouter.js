@@ -7,5 +7,6 @@ router.post('/houses', houseMiddleware.checkHouseValidMiddleware, house.createHo
 
 router.get('/houses/:house_id', houseMiddleware.isHousePresent, house.getHouse);
 router.get ('/houses', house.findAllHouses);
+router.patch('/houses/:house_id', houseMiddleware.isHousePresent, house.updateHouse)
 
 module.exports = router;

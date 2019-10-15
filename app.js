@@ -23,7 +23,6 @@ let {getUsersPages, getHousesPages} = require('./getPages');
 let {user, house} = require('./controllers');
 let {userMiddleware, houseMiddleware} = require('./middleware');
 let {userRouter, houseRouter} = require('./router');
-// let { provider } = require('./dataBase');
 
 app.get ('/', getUsersPages.getMainPage);
 app.get ('/register', getUsersPages.getRegisterPage);
