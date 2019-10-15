@@ -7,7 +7,13 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         city: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            foreignKey: true,
+
         },
         metres: {
             type: DataTypes.DECIMAL,
@@ -24,5 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'houses',
         timestamps: false
     });
+    const User = sequelize.import('./user.js');
+    House.belongsTo(User, {foreignKey: 'user_id'});
     return House;
 }
