@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
     try {
         const HouseObject = req.body;
         const {house_id} = req.params;
-        const HouseModel = dataBase.getModel('House');
+        const HouseModel = dataBase.getModel('house');
 
         await HouseModel.update(HouseObject, {
             where: {

@@ -3,7 +3,7 @@ const dataBase = require ('../../dataBase').getInstance();
 module.exports = async (req, res) => {
     try {
         const houseToCreate = req.body;
-        const housesModel = dataBase.getModel('House');
+        const housesModel = dataBase.getModel('house');
 
         await housesModel.create(houseToCreate);
 

@@ -2,7 +2,7 @@ const dataBase = require('../../dataBase').getInstance();
 
 module.exports = async (req,res) => {
     try{
-        const housesModel = dataBase.getModel('House');
+        const housesModel = dataBase.getModel('house');
 
         const houses = await housesModel.findAll();
 

@@ -1,8 +1,8 @@
-const {dataBase} = require ('../../dataBase').getInstance();
+const dataBase = require ('../../dataBase').getInstance();
 module.exports = async (req, res, next) => {
     try {
         const {house_id} = req.params;
-        const housesModel = dataBase.getModel('House');
+        const housesModel = dataBase.getModel('house');
 
         const houses = await housesModel.findByPk(house_id);
 
