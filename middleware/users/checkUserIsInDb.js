@@ -10,7 +10,7 @@ module.exports  = async (req, res, next) => {
                 email,
                 password
             },
-            attributes: ['id', 'name', 'email']
+            attributes: ['user_id', 'name', 'email']
         });
         if (!userInDb) {
             throw new Error('Wrong data')
