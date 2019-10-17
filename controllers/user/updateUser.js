@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
 
         await UserModel.update(UserObject, {
             where: {
-                id: user_id
+                user_id: user_id
             }
         });
 
