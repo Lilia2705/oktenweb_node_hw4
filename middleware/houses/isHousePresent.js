@@ -4,13 +4,13 @@ module.exports = async (req, res, next) => {
         const {house_id} = req.params;
         const housesModel = dataBase.getModel('house');
 
-        const houses = await housesModel.findByPk(house_id);
+        const isHousePresent = await housesModel.findByPk(house_id);
 
-        if (!houses.length) {
+        if (!isHousePresent) {
             throw new Error(`House with ID ${house_id} doesn't exist`)
         }
 
-        req.house = houses;
+        req.house = isHousePresent;
 
         next();
     } catch (e) {
