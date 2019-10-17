@@ -1,8 +1,9 @@
-const {dataBase} = require ('../../dataBase').getInstance();
+const dataBase = require ('../../dataBase').getInstance();
+
 module.exports = async (req, res, next) => {
     try {
         const {user_id} = req.params;
-        const UserModel = dataBase.getModel('User');
+        const UserModel = dataBase.getModel('user');
 
         let isUserPresent = await UserModel.findByPk(user_id);
 

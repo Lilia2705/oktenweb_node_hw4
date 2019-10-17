@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
     try {
         const UserObject = req.body;
         const {user_id} = req.params;
-        const UserModel = dataBase.getModel('User');
+        const UserModel = dataBase.getModel('user');
 
         await UserModel.update(UserObject, {
             where: {

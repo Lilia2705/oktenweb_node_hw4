@@ -2,6 +2,8 @@ const express = require('express');
 const exprHb = require('express-handlebars');
 const path = require('path');
 
+const db = require('./dataBase').getInstance();
+db.setModels();
 
 const app = express();
 

@@ -1,9 +1,9 @@
-const {dataBase} = require('../../dataBase').getInstance();
+const dataBase = require('../../dataBase').getInstance();
 
 module.exports  = async (req, res, next) => {
     try {
         const {email, password} = req.body;
-        const UserModel = dataBase.getModel('User');
+        const UserModel = dataBase.getModel('user');
 
         const userInDb = await UserModel.findOne({
             where: {
